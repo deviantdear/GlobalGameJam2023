@@ -8,6 +8,7 @@ public class Worker : MonoBehaviour, IGoap
 	NavMeshAgent agent;
 	Vector3 previousDestination;
 	Inventory inv;
+	public Inventory windmill;
 
 	void Start()
 	{
@@ -18,7 +19,9 @@ public class Worker : MonoBehaviour, IGoap
 	public HashSet<KeyValuePair<string,object>> GetWorldState () 
 	{
 		HashSet<KeyValuePair<string,object>> worldData = new HashSet<KeyValuePair<string,object>> ();
-		worldData.Add(new KeyValuePair<string, object>("hasFlour", (inv.flourLevel > 1) ));
+		worldData.Add(new KeyValuePair<string, object>("hasStock", (windmill.flourLevel > 4)));
+		worldData.Add(new KeyValuePair<string, object>("hasFlour", (inv.flourLevel > 1)));
+		worldData.Add(new KeyValuePair<string, object>("hasDelivery", (inv.breadLevel > 4)));
 		return worldData;
 	}
 
@@ -26,6 +29,7 @@ public class Worker : MonoBehaviour, IGoap
 	public HashSet<KeyValuePair<string,object>> CreateGoalState ()
 	{
 		HashSet<KeyValuePair<string,object>> goal = new HashSet<KeyValuePair<string,object>> ();
+		//Global Goal
 		goal.Add(new KeyValuePair<string, object>("doJob", true));
 		return goal;
 	}
@@ -42,6 +46,7 @@ public class Worker : MonoBehaviour, IGoap
 		
 		agent.SetDestination(nextAction.target.transform.position);
 		
+		//We have reached our destination -> next action
 		if (agent.hasPath && agent.remainingDistance < 2) {
 			nextAction.setInRange(true);
 			previousDestination = nextAction.target.transform.position;
@@ -62,21 +67,21 @@ public class Worker : MonoBehaviour, IGoap
 
 	public void PlanFailed (HashSet<KeyValuePair<string, object>> failedGoal)
 	{
-
+		//tbd
 	}
 
 	public void PlanFound (HashSet<KeyValuePair<string, object>> goal, Queue<GoapAction> actions)
 	{
-
+		//tbd
 	}
 
 	public void ActionsFinished ()
 	{
-
+		//tbd
 	}
 
 	public void PlanAborted (GoapAction aborter)
 	{
-
+		//tbd
 	}
 }
