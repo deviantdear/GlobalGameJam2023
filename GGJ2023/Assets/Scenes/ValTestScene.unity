@@ -4486,6 +4486,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   rotationSpeed: 100
+  obstacle: {fileID: 1707314718}
 --- !u!1 &1146785723
 GameObject:
   m_ObjectHideFlags: 0
