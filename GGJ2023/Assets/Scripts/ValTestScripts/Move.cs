@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 
-// A very simplistic movement script on the x-z plane.
+// A very simplistic movement script on the x-y plane.
 
 namespace ValTestScripts
 {
@@ -13,6 +13,7 @@ namespace ValTestScripts
         public float speed = 10.0f;
         public float rotationSpeed = 100.0f;
         public GameObject obstacle;
+
 
         void Start()
         {
@@ -45,21 +46,47 @@ namespace ValTestScripts
 
         }
 
+
+        Vector3 Cross(Vector3 v, Vector3 w)
+        {
+            float xMult = v.y * w.z - v.z * w.y;
+            float yMult = v.x * w.z - v.z * w.x;
+            float zMult = v.x * w.y - v.y * w.x;
+
+            return (new Vector3(xMult, yMult, zMult));
+        }
+
         private void CalculateDistance()
         {
            float distance = (float)Math.Sqrt(Mathf.Pow(obstacle.transform.position.x - transform.position.x, 2) + Mathf.Pow(obstacle.transform.position.y - transform.position.y, 2));
 
-           float uDistance = Vector3.Distance(obstacle.transform.position, transform.position);
+          // float uDistance = Vector3.Distance(obstacle.transform.position, transform.position);
 
             Debug.Log("Distance: " + distance);
-            Debug.Log("UDistance: " + uDistance);
+           // Debug.Log("UDistance: " + uDistance);
         }
 
         private void CalculateAngle()
         {
 
+            Vector3 forward = transform.up;
+            Vector3 obstacleDirection = obstacle.transform.position - transform.position;
 
+            Debug.DrawRay(this.transform.position, forward, Color.blue);
+            Debug.DrawRay(this.transform.position, obstacleDirection, Color.red);
 
+            float dot = forward.x * obstacleDirection.x + forward.y * obstacleDirection.y;
+            float angle = Mathf.Acos(dot/(forward.magnitude * obstacleDirection.magnitude));
+
+            Debug.Log("Angle: " + angle * Mathf.Rad2Deg); //Radians to Degrees
+           // Debug.Log("Unity Angle: " + Vector3.Angle(forward, obstacleDirection)); //Radians to Degrees
+
+            int clockwise = 1;
+            if (Cross(forward, obstacleDirection).z < 0)
+                clockwise = -1;
+
+            if ((angle * Mathf.Rad2Deg) > 10)
+                this.transform.Rotate(0, 0, angle * Mathf.Rad2Deg * clockwise);
         }
     }
 }
