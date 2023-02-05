@@ -1,13 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Character
 {
     public class AnimatedPersonData : AnimatedCharacterData
     {
-        public Sprite m_FaceNetural;
-        public Sprite m_FaceHappy;
-        public Sprite m_FaceAngry;
-        public Sprite m_FaceScared;
+        public Dictionary<FaceState, List<Sprite>> face;
         
         public enum FaceState
         {
@@ -17,16 +15,8 @@ namespace Character
             Scared
         }
 
-        public Sprite m_ArmsRestingRest;
-        public Sprite m_ArmsRestingA;
-        public Sprite m_ArmsRestingB;
-        public Sprite m_ArmsRaisedRest;
-        public Sprite m_ArmsRaisedA;
-        public Sprite m_ArmsRaisedB;
-        public Sprite m_ArmsLassoRest;
-        public Sprite m_ArmsLassoA;
-        public Sprite m_ArmsLassoB;
-        
+        public Dictionary<ArmState, List<Sprite>> arms;
+
         public enum ArmState
         {
             Rest,

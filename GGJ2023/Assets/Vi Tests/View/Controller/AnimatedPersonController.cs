@@ -14,18 +14,12 @@ namespace Character
 
         void SetFaceState(AnimatedPersonData.FaceState faceState)
         {
-            switch (faceState)
-            {
-                
-            }
+            
         }
 
         void SetArmState(AnimatedPersonData.ArmState armState)
         {
-            switch (armState)
-            {
-                
-            }
+            
         }
     }
 }

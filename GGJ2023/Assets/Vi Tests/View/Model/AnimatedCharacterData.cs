@@ -1,14 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Character
 {
     public class AnimatedCharacterData : ScriptableObject
     {
-        public Sprite m_BaseStanding;
-        public Sprite m_BaseWalkA;
-        public Sprite m_BaseWalkB;
-        public Sprite m_BaseSit;
-
-        public Sprite m_Hat;
+        public float framesPerSecond = 3;
+        public List<Sprite> baseStanding;
+        public List<Sprite> baseWalk;
+        public List<Sprite> baseSit;
+        public List<Sprite> hat;
     }
 }
