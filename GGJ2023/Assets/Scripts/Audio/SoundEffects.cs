@@ -50,6 +50,21 @@ public class SoundEffects : MonoBehaviour
         FollowWayPoints.Chase -= ChangeTheme;
     }
 
+    public void Moo()
+    {
+        RandomizeSfx(moo);
+    }
+
+    public void Cowbell()
+    {
+        PlaySingle(cowbell);
+    }
+
+    public void Stomp()
+    {
+        PlaySingle(walkling);
+    }
+
     //Used to play single sound clips.
     public void PlaySingle(AudioClip clip)
     {

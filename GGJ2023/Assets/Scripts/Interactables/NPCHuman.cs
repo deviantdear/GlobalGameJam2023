@@ -11,10 +11,10 @@ public class NPCHuman : Interactable
         myStats = GetComponent<CharacterStats>();
     }
 
-    public override void Interact()
+    public override bool Interact()
     {
         base.Interact();
-
+        return true;
     }
 }
    

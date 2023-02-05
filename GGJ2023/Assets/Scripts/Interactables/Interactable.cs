@@ -9,11 +9,12 @@ public class Interactable : MonoBehaviour
     bool isFocus = false;
     Transform player;
 
-    bool hasInteracted = false;
+    internal bool hasInteracted = false;
 
-    public virtual void Interact()
+    public virtual bool Interact()
     {
         //method meant to be overriddden
+        return true;
     }
 
     private void Update()

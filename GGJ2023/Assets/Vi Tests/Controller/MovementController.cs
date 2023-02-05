@@ -14,6 +14,9 @@ public class MovementController : MonoBehaviour
         m_Direction = direction;
         
     }
+
+    public void SetSpeed(float newSpeed) => m_Speed = newSpeed;
+    
     void FixedUpdate()
     {
         m_RigidBody.MovePosition(m_RigidBody.position + m_Direction.normalized * m_Speed * Time.fixedDeltaTime);
