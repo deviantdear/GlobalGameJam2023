@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPlayer : GoapAction
+public class TipOver : GoapAction
 {
-
-    bool completed = false;
-    float startTime = 0;
-    public float duration = 2; //seconds 
-
     public override bool checkProceduralPrecondition(GameObject agent)
     {
         throw new System.NotImplementedException();
@@ -32,5 +27,17 @@ public class FollowPlayer : GoapAction
     public override void reset()
     {
         throw new System.NotImplementedException();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }
