@@ -47,7 +47,7 @@ namespace ValTestScripts
         }
 
 
-        Vector3 Cross(Vector3 v, Vector3 w)
+        Vector3 CrossProduct(Vector3 v, Vector3 w)
         {
             float xMult = v.y * w.z - v.z * w.y;
             float yMult = v.x * w.z - v.z * w.x;
@@ -77,14 +77,14 @@ namespace ValTestScripts
             Debug.DrawRay(this.transform.position, forward, Color.blue);
             Debug.DrawRay(this.transform.position, obstacleDirection, Color.red);
 
-            float dot = forward.x * obstacleDirection.x + forward.y * obstacleDirection.y;
-            float angle = Mathf.Acos(dot / (forward.magnitude * obstacleDirection.magnitude));
+            float dotProduct = forward.x * obstacleDirection.x + forward.y * obstacleDirection.y;
+            float angle = Mathf.Acos(dotProduct / (forward.magnitude * obstacleDirection.magnitude));
 
             Debug.Log("Angle: " + angle * Mathf.Rad2Deg); //Radians to Degrees
             Debug.Log("Unity Angle: " + Vector3.Angle(forward, obstacleDirection)); //Radians to Degrees
 
             int clockwise = 1;
-            if (Cross(forward, obstacleDirection).z < 0)
+            if (CrossProduct(forward, obstacleDirection).z < 0)
                 clockwise = -1;
 
             if ((angle * Mathf.Rad2Deg) > 10)
