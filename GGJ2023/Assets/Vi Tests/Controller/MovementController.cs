@@ -9,8 +9,9 @@ public class MovementController : MonoBehaviour
     [SerializeField] float m_Speed;
     [SerializeField] Vector2 m_Direction;
 
-    public void Move(Vector2 m_Direction)
+    public void Move(Vector2 direction)
     {
+        m_Direction = direction;
         
     }
     void FixedUpdate()

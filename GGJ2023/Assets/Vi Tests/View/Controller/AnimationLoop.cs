@@ -35,7 +35,7 @@ namespace Character
                 var time = Time.time;
                 var frame = (int)(time * m_FramesPerSecond);
                 OnUpdate?.Invoke(frame);
-                yield return new WaitForSeconds(m_FramesPerSecond);
+                yield return new WaitForSeconds(1/m_FramesPerSecond);
             }
 
             m_ActiveLoop = null;
