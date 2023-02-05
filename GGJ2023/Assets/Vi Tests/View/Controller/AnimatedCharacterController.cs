@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Character
 {
+    
     public class AnimatedCharacterController : MonoBehaviour
     {
         [SerializeField] AnimatedCharacterData m_Data;
@@ -12,20 +13,32 @@ namespace Character
         [SerializeField] SpriteRenderer m_HatRenderer;
         [SerializeField] internal bool m_ReverseFlip;
         [SerializeField] AnimationLoop m_AnimationLoop;
+        [SerializeField] internal int m_Frame;
+        [SerializeField] int m_BaseCount;
         
         internal virtual AnimatedCharacterData Data { get => m_Data; set => m_Data = value; }
         internal Vector2 m_Direction;
-        internal AnimatedCharacterData.BaseState m_BaseState;
+        internal AnimatedCharacterData.BaseState m_BaseState = AnimatedCharacterData.BaseState.Standing;
+        bool m_LastFlip;
 
         public void Move(Vector2 direction)
         {
             m_Direction = direction;
+            if (Math.Abs(m_Direction.magnitude) > 0.01)
+            {
+                m_BaseState = AnimatedCharacterData.BaseState.Walking;
+            } else if (m_BaseState == AnimatedCharacterData.BaseState.Walking)
+                m_BaseState = AnimatedCharacterData.BaseState.Standing;
+            UpdateRenderers(m_Frame);
         }
 
         public void SetState(AnimatedCharacterData.BaseState state)
         {
             m_BaseState = state;
+            UpdateRenderers(m_Frame);
         }
+        
+        
 
         void OnEnable()
         {
@@ -41,7 +54,10 @@ namespace Character
         {
             if (!gameObject.activeSelf)
                 return;
-            var flipx = (m_ReverseFlip)?  m_Direction.x < 0 : m_Direction.x > 0;
+            if (m_Direction.x < -0.01f || m_Direction.x > 0.01f)
+                m_LastFlip = (m_ReverseFlip)?  m_Direction.x < -0.01f : m_Direction.x > 0.01f;
+            m_Frame = frame;
+            m_BaseCount = frame % m_Data.baseWalk.Count;
             switch (m_BaseState)
             {
                 case AnimatedCharacterData.BaseState.Sitting:
@@ -58,9 +74,9 @@ namespace Character
                     break;
             }
 
-            m_BaseRenderer.flipX = flipx;
+            m_BaseRenderer.flipX = m_LastFlip;
             m_HatRenderer.sprite = m_Data.hat[(int)(frame % m_Data.hat.Count)];
-            m_HatRenderer.flipX = flipx;
+            m_HatRenderer.flipX = m_LastFlip;
         }
     }
 }

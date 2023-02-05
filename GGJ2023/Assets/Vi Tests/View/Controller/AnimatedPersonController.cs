@@ -30,11 +30,13 @@ namespace Character
         void SetFaceState(AnimatedPersonData.FaceState faceState)
         {
             m_FaceState = faceState;
+            UpdateRenderers(m_Frame);
         }
 
         void SetArmState(AnimatedPersonData.ArmState armState)
         {
             m_ArmState = armState;
+            UpdateRenderers(m_Frame);
         }
     }
 }
