@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2862512484106675714}
   - component: {fileID: 2862512484106675713}
-  - component: {fileID: 2862512484106675712}
   - component: {fileID: 2862512484106675719}
   - component: {fileID: 2862512484106675718}
   - component: {fileID: 2862512484106675717}
+  - component: {fileID: 5776369317748687942}
+  - component: {fileID: 1082552810011875080}
   m_Layer: 0
   m_Name: CowboyController
   m_TagString: Untagged
@@ -53,34 +54,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_RigidBody: {fileID: 2862512484106675719}
-  m_Speed: 5
+  m_Speed: 3
   m_Direction: {x: 0, y: 0}
---- !u!114 &2862512484106675712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2862512484106675716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23f505ac32f801c4c989cc9dece4e6b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovementController: {fileID: 2862512484106675713}
-  m_AnimatedCharacterController: {fileID: 2862512484106675717}
-  m_HorizontalInputAxis: Horizontal
-  m_VerticalInputAxis: Vertical
-  m_MooInput: Fire1
-  m_CowbellInput: Fire2
-  m_ActionInput: Fire3
-  m_Fullness: 1
-  m_HungerPerSec: 0.01
-  m_Points: 0
-  m_InteractionCollider: {fileID: 2862512484106675718}
-  m_InteractableMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!50 &2862512484106675719
 Rigidbody2D:
   serializedVersion: 4
@@ -150,6 +125,42 @@ MonoBehaviour:
   m_PersonData: {fileID: 11400000, guid: aa7c3ae3b7c47944ea67759d082636ce, type: 2}
   m_FaceRenderer: {fileID: 2862512484961120305}
   m_ArmRenderer: {fileID: 2862512485118159019}
+--- !u!114 &5776369317748687942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862512484106675716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e1b9b5cd2213e0448067752b133bc7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  interactionTransform: {fileID: 2862512484106675714}
+  m_FollowWaypoints: {fileID: 1082552810011875080}
+--- !u!114 &1082552810011875080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2862512484106675716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab29a2d725ed4d64e87538c66a8de5f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MovementController: {fileID: 2862512484106675713}
+  m_AnimatedPersonController: {fileID: 2862512484106675717}
+  m_FearCow: 0
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  speed: 3
+  chase: 0
+  cow: {fileID: 0}
 --- !u!1 &2862512484549459475
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +233,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 445292586, guid: 309e9d3ad82c0e4469836e62a3761319, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -306,7 +317,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 996619112, guid: 1430f31426c1e6f4b8c3d89e6d1e19d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -343,7 +354,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2862512485118159017}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.3, z: 0}
+  m_LocalPosition: {x: 0, y: -0.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -390,7 +401,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1756205906, guid: 1430f31426c1e6f4b8c3d89e6d1e19d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -475,7 +486,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1523157287, guid: 1430f31426c1e6f4b8c3d89e6d1e19d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
