@@ -78,7 +78,7 @@ public class SpawnGrass : MonoBehaviour
 
 
     // generate a set of coords, if the coords are OFF camera and do not overlap with another item spawn a root
-    void SpawnRootsCheck()
+    public void SpawnRootsCheck()
     {
         if (currentRootsSpawned < currentMaxRootsSpawned)
         {
@@ -118,7 +118,7 @@ public class SpawnGrass : MonoBehaviour
     }
 
     // small functions for incrementing/decrementing values
-    void DecrementCount()
+    public void DecrementCount()
     {
         if (currentRootsSpawned > 0) { currentRootsSpawned--; }
     }
@@ -137,23 +137,4 @@ public class SpawnGrass : MonoBehaviour
         return false;
     }
 
-    //bool isValidSpawnTerrain(float spawnX, float spawnY)
-    //{
-    //    Vector3 spawnPos = camera.WorldToViewportPoint(new Vector3(spawnX, spawnY, 1));
-
-    //    RaycastHit2D hit = Physics2D.Raycast(spawnPos, -Vector2.up);
-
-    //    // Vector3 direction = Vector3.back;
-
-    //    // Ray downRay = new Ray(spawnPos, transform.TransformDirection(direction * 1.0f));
-
-    //    if (hit)
-    //    {
-    //        if (hit.collider.tag == "Grass")
-    //        {
-    //            return true;
-    //        }
-    //    }
-    //    return false;
-    //}
 }

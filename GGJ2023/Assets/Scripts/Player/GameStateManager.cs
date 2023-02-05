@@ -80,7 +80,7 @@ public class GameStateManager : MonoBehaviour
     }
 
     // if the player eats a root, increase their hunger by a set amount and ceiling their current number at the max hunger
-    void IncreaseByRootValue()
+    public void IncreaseByRootValue()
     {
         if (currentHunger + rootHungerValue > maxHunger) { currentHunger = maxHunger; }
         else { currentHunger += rootHungerValue; }
