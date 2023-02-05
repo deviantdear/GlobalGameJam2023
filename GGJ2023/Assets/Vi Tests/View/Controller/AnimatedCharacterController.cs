@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,10 @@ namespace Character
         [SerializeField] AnimatedCharacterData m_Data;
         [SerializeField] SpriteRenderer m_BaseRenderer;
         [SerializeField] SpriteRenderer m_HatRenderer;
-        [SerializeField] bool m_ReverseFlip;
+        [SerializeField] internal bool m_ReverseFlip;
+        [SerializeField] AnimationLoop m_AnimationLoop;
         
-        internal AnimatedCharacterData Data { get => m_Data; set => m_Data = value; }
+        internal virtual AnimatedCharacterData Data { get => m_Data; set => m_Data = value; }
         internal Vector2 m_Direction;
         internal AnimatedCharacterData.BaseState m_BaseState;
 
@@ -25,35 +27,40 @@ namespace Character
             m_BaseState = state;
         }
 
-        internal virtual void UpdateRenderers()
+        void OnEnable()
         {
-            var time = Time.time;
+            m_AnimationLoop.OnUpdate += UpdateRenderers;
+        }
+
+        void OnDisable()
+        {
+            m_AnimationLoop.OnUpdate -= UpdateRenderers;
+        }
+
+        internal virtual void UpdateRenderers(int frame)
+        {
+            if (!gameObject.activeSelf)
+                return;
+            var flipx = (m_ReverseFlip)?  m_Direction.x < 0 : m_Direction.x > 0;
             switch (m_BaseState)
             {
                 case AnimatedCharacterData.BaseState.Sitting:
                     m_BaseRenderer.sprite =
-                        m_Data.baseSit[(int)((time * m_Data.framesPerSecond) % m_Data.baseSit.Count)];
+                        m_Data.baseSit[(int)(frame % m_Data.baseSit.Count)];
                     break;
                 case AnimatedCharacterData.BaseState.Standing:
                     m_BaseRenderer.sprite =
-                        m_Data.baseStanding[(int)((time * m_Data.framesPerSecond) % m_Data.baseStanding.Count)];
+                        m_Data.baseStanding[(int)(frame % m_Data.baseStanding.Count)];
                     break;
                 case AnimatedCharacterData.BaseState.Walking:
                     m_BaseRenderer.sprite =
-                        m_Data.baseWalk[(int)((time * m_Data.framesPerSecond) % m_Data.baseWalk.Count)];
+                        m_Data.baseWalk[(int)(frame % m_Data.baseWalk.Count)];
                     break;
             }
 
-            m_BaseRenderer.flipX = (m_ReverseFlip)?  m_Direction.x < 0 : m_Direction.x > 0;
-        }
-
-        IEnumerable AnimationUpdate()
-        {
-            while (gameObject.activeSelf)
-            {
-                UpdateRenderers();
-                yield return new WaitForSeconds(m_Data.framesPerSecond);
-            }
+            m_BaseRenderer.flipX = flipx;
+            m_HatRenderer.sprite = m_Data.hat[(int)(frame % m_Data.hat.Count)];
+            m_HatRenderer.flipX = flipx;
         }
     }
 }
