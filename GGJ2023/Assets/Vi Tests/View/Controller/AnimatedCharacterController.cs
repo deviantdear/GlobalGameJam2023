@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Character
 {
+    
     public class AnimatedCharacterController : MonoBehaviour
     {
         [SerializeField] AnimatedCharacterData m_Data;
@@ -15,17 +16,24 @@ namespace Character
         
         internal virtual AnimatedCharacterData Data { get => m_Data; set => m_Data = value; }
         internal Vector2 m_Direction;
-        internal AnimatedCharacterData.BaseState m_BaseState;
+        internal AnimatedCharacterData.BaseState m_BaseState = AnimatedCharacterData.BaseState.Standing;
 
         public void Move(Vector2 direction)
         {
             m_Direction = direction;
+            if (Math.Abs(m_Direction.magnitude) > 0.01)
+            {
+                m_BaseState = AnimatedCharacterData.BaseState.Walking;
+            } else if (m_BaseState == AnimatedCharacterData.BaseState.Walking)
+                m_BaseState = AnimatedCharacterData.BaseState.Standing;
         }
 
         public void SetState(AnimatedCharacterData.BaseState state)
         {
             m_BaseState = state;
         }
+        
+        
 
         void OnEnable()
         {

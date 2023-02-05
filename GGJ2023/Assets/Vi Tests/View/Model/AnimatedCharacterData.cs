@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Character
 {
+    [CreateAssetMenu(menuName = "Character/AnimatedCharacterData")]
     public class AnimatedCharacterData : ScriptableObject
     {
         public List<Sprite> baseStanding;
