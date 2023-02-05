@@ -10,5 +10,12 @@ namespace Character
         public List<Sprite> baseWalk;
         public List<Sprite> baseSit;
         public List<Sprite> hat;
+        
+        public enum BaseState
+        {
+            Standing,
+            Walking,
+            Sitting
+        }
     }
 }

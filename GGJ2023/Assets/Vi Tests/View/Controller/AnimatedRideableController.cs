@@ -7,5 +7,6 @@ namespace Character
     public class AnimatedRideableController : AnimatedCharacterController
     {
         [SerializeField] Transform m_RideablePoint;
+        
     }
 }

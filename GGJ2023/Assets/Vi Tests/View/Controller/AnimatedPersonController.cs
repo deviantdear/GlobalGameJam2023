@@ -12,6 +12,13 @@ namespace Character
         
         internal AnimatedCharacterData Data { get => m_Data; set => m_Data = (AnimatedPersonData)value; }
 
+        internal virtual void UpdateRenderers()
+        {
+            base.UpdateRenderers();
+            
+        }
+        
+        
         void SetFaceState(AnimatedPersonData.FaceState faceState)
         {
             
