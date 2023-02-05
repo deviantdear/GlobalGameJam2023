@@ -7,7 +7,8 @@ public class FollowPlayer : GoapAction
 
     bool completed = false;
     float startTime = 0;
-    public float workDuration = 2; //seconds 
+    public float duration = 2; //seconds 
+
     public override bool checkProceduralPrecondition(GameObject agent)
     {
         throw new System.NotImplementedException();
