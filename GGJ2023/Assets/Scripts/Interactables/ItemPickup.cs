@@ -4,10 +4,12 @@ using UnityEngine;
 public class ItemPickup : Interactable
 {
     public Item item;
-    public override void Interact()
+    public override bool Interact()
     {
-        base.Interact();
+        if (hasInteracted)
+            return false;
         PickUp();
+        return base.Interact();
     }
 
     void PickUp()

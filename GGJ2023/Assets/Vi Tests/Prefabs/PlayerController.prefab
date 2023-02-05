@@ -178,10 +178,9 @@ MonoBehaviour:
   m_Fullness: 1
   m_HungerPerSec: 0.01
   m_Points: 0
+  m_FullSpeed: 5
+  m_HungrySpeed: 1
   m_InteractionCollider: {fileID: 1121887856653444088}
-  m_InteractableMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!50 &1121887856653444089
 Rigidbody2D:
   serializedVersion: 4
