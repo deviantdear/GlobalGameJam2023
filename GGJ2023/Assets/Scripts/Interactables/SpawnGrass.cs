@@ -30,16 +30,19 @@ public class SpawnGrass : MonoBehaviour
 
     // the object we are spawning, in this case grass/roots
     [SerializeField] GameObject rootObject;
+    [SerializeField] GameObject playerCharacter;
 
     // How far away from any other object we want roots to spawn
     [SerializeField] float spawnAvoidance = 1.0f;
+    [SerializeField] float maxDistanceFromPlayer = 20.0f;
 
     // the main game camera
     [SerializeField] Camera camera;
 
     // mostly used for logging/etc. tracks the total number of roots that have been spawned so far
     public int rootsSpawnedCount = 0;
-    
+
+    private bool gameRunning = true;
 
     // Spawn a handful of roots at the beginning of the game, then kick off the coroutine to spawn more over time
     void Start()
@@ -51,7 +54,13 @@ public class SpawnGrass : MonoBehaviour
 
     void Update()
     {
-
+        // if the game is over kill coroutines
+        if (GetComponent<GameStateManager>().gameOver == true && gameRunning == true)
+        {
+            StopCoroutine("SpawnRoots");
+            gameRunning = false;
+            //Debug.Log("Killed coroutine because game ended");
+        }
     }
 
     // spawn a root every x seconds, decrease the max roots that can co-exist every Y roots that are spawned (to increase difficulty over time)
@@ -77,14 +86,21 @@ public class SpawnGrass : MonoBehaviour
             float spawnY = Random.Range(minY, maxY);
 
             Vector2 spawnCoords = new Vector2(spawnX, spawnY);
+            Vector3 spawnCoords3D = new Vector3(spawnX, spawnY, 1);
 
-            Debug.Log(Physics2D.OverlapCircle(spawnCoords, spawnAvoidance));
+            // Debug.Log(Physics2D.OverlapCircle(spawnCoords, spawnAvoidance));
 
-            if (isOffCamera(spawnX, spawnY) && ((Physics2D.OverlapCircle(spawnCoords, spawnAvoidance) == null)))
+            float distanceFromPlayer = Vector3.Distance(playerCharacter.transform.position, spawnCoords3D);
+
+            if ((distanceFromPlayer < maxDistanceFromPlayer) && isOffCamera(spawnX, spawnY) && ((Physics2D.OverlapCircle(spawnCoords, spawnAvoidance) == null)))
             {
-                Instantiate(rootObject, new Vector3(spawnX, spawnY, 1), Quaternion.identity);
+                Instantiate(rootObject, spawnCoords3D, Quaternion.identity);
                 currentRootsSpawned++;
                 rootsSpawnedCount++;
+            }
+            else
+            {
+                SpawnRootsCheck();
             }
         }
     }
@@ -121,4 +137,23 @@ public class SpawnGrass : MonoBehaviour
         return false;
     }
 
+    //bool isValidSpawnTerrain(float spawnX, float spawnY)
+    //{
+    //    Vector3 spawnPos = camera.WorldToViewportPoint(new Vector3(spawnX, spawnY, 1));
+
+    //    RaycastHit2D hit = Physics2D.Raycast(spawnPos, -Vector2.up);
+
+    //    // Vector3 direction = Vector3.back;
+
+    //    // Ray downRay = new Ray(spawnPos, transform.TransformDirection(direction * 1.0f));
+
+    //    if (hit)
+    //    {
+    //        if (hit.collider.tag == "Grass")
+    //        {
+    //            return true;
+    //        }
+    //    }
+    //    return false;
+    //}
 }
