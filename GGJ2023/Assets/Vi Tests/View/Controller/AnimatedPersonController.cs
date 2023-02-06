@@ -29,14 +29,20 @@ namespace Character
         
         public void SetFaceState(AnimatedPersonData.FaceState faceState)
         {
-            m_FaceState = faceState;
-            UpdateRenderers(m_Frame);
+            if (faceState != m_FaceState)
+            {
+                m_FaceState = faceState;
+                UpdateRenderers(m_Frame);
+            }
         }
 
-        void SetArmState(AnimatedPersonData.ArmState armState)
+        public void SetArmState(AnimatedPersonData.ArmState armState)
         {
-            m_ArmState = armState;
-            UpdateRenderers(m_Frame);
+            if (m_ArmState != armState)
+            {
+                m_ArmState = armState;
+                UpdateRenderers(m_Frame);
+            }
         }
     }
 }
