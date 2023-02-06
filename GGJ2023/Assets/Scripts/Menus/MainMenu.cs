@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
     // Start Button starts main game scene
     public void StartButton()
     {
-        SceneManager.LoadScene("ValTestScene");
+        SceneManager.LoadScene("Game");
     }
 
     // Quit Button stops game

@@ -47,9 +47,9 @@ public class SpawnGrass : MonoBehaviour
     // Spawn a handful of roots at the beginning of the game, then kick off the coroutine to spawn more over time
     void Start()
     {
-        for (int i = 0; i < startingCount; i++) { SpawnRootsCheck(); }
+        //for (int i = 0; i < startingCount; i++) { SpawnRootsCheck(); }
 
-        StartCoroutine("SpawnTimer");
+        //StartCoroutine("SpawnTimer");
     }
 
     void Update()
@@ -63,47 +63,47 @@ public class SpawnGrass : MonoBehaviour
         }
     }
 
-    // spawn a root every x seconds, decrease the max roots that can co-exist every Y roots that are spawned (to increase difficulty over time)
-    IEnumerator SpawnTimer()
-    {
-        for(; ; )
-        {
-            SpawnRootsCheck();
+    //// spawn a root every x seconds, decrease the max roots that can co-exist every Y roots that are spawned (to increase difficulty over time)
+    //IEnumerator SpawnTimer()
+    //{
+    //    for(; ; )
+    //    {
+    //        SpawnRootsCheck();
 
-            if (rootsSpawnedCount % maxDecreaseThreshold == 0) { DecrementMax(); }
+    //        if (rootsSpawnedCount % maxDecreaseThreshold == 0) { DecrementMax(); }
 
-            yield return new WaitForSeconds(spawnDelay);
-        }
-    }
+    //        yield return new WaitForSeconds(spawnDelay);
+    //    }
+    //}
 
 
     // generate a set of coords, if the coords are OFF camera and do not overlap with another item spawn a root
-    public void SpawnRootsCheck()
-    {
-        if (currentRootsSpawned < currentMaxRootsSpawned)
-        {
-            float spawnX = Random.Range(minX, maxX);
-            float spawnY = Random.Range(minY, maxY);
+    //public void SpawnRootsCheck()
+    //{
+    //    if (currentRootsSpawned < currentMaxRootsSpawned)
+    //    {
+    //        float spawnX = Random.Range(minX, maxX);
+    //        float spawnY = Random.Range(minY, maxY);
 
-            Vector2 spawnCoords = new Vector2(spawnX, spawnY);
-            Vector3 spawnCoords3D = new Vector3(spawnX, spawnY, 1);
+    //        Vector2 spawnCoords = new Vector2(spawnX, spawnY);
+    //        Vector3 spawnCoords3D = new Vector3(spawnX, spawnY, 1);
 
-            // Debug.Log(Physics2D.OverlapCircle(spawnCoords, spawnAvoidance));
+    //        // Debug.Log(Physics2D.OverlapCircle(spawnCoords, spawnAvoidance));
 
-            float distanceFromPlayer = Vector3.Distance(playerCharacter.transform.position, spawnCoords3D);
+    //        float distanceFromPlayer = Vector3.Distance(playerCharacter.transform.position, spawnCoords3D);
 
-            if ((distanceFromPlayer < maxDistanceFromPlayer) && isOffCamera(spawnX, spawnY) && ((Physics2D.OverlapCircle(spawnCoords, spawnAvoidance) == null)))
-            {
-                Instantiate(rootObject, spawnCoords3D, Quaternion.identity);
-                currentRootsSpawned++;
-                rootsSpawnedCount++;
-            }
-            else
-            {
-                SpawnRootsCheck();
-            }
-        }
-    }
+    //        if ((distanceFromPlayer < maxDistanceFromPlayer) && isOffCamera(spawnX, spawnY) && ((Physics2D.OverlapCircle(spawnCoords, spawnAvoidance) == null)))
+    //        {
+    //            Instantiate(rootObject, spawnCoords3D, Quaternion.identity);
+    //            currentRootsSpawned++;
+    //            rootsSpawnedCount++;
+    //        }
+    //        else
+    //        {
+    //            SpawnRootsCheck();
+    //        }
+    //    }
+    //}
 
     // small functions for incrementing/decrementing values
     void IncrementMax()

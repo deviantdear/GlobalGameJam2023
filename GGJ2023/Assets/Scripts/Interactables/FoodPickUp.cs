@@ -47,7 +47,7 @@ public class FoodPickUp : Interactable
 
         if (distanceFromPlayer > despawnDistance)
         {
-            gameController.GetComponent<SpawnGrass>().SpawnRootsCheck();
+            //gameController.GetComponent<SpawnGrass>().SpawnRootsCheck();
             gameController.GetComponent<SpawnGrass>().DecrementCount();
             Destroy(this.gameObject);
         }
