@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    public Transform player;
-    public float smoothing;
 
-    public Vector2 maxPos;
-    public Vector2 minPos;
+    public Transform followTransform;
+    public BoxCollider2D mapBounds;
 
-    private void FixedUpdate()
+    private float xMin, xMax, yMin, yMax;
+    private float camY, camX;
+    private float camOrthsize;
+    private float cameraRatio;
+    private Camera mainCam;
+    private Vector3 smoothPos;
+    public float smoothSpeed = 0.5f;
+
+    private void Start()
     {
-        if(transform.position != player.position)
-        {
-            Vector3 playerPos = new Vector3(player.position.x, player.position.y, transform.position.z);
-
-            playerPos.x = Mathf.Clamp(playerPos.x, minPos.x, maxPos.x);
-            playerPos.y = Mathf.Clamp(playerPos.y, minPos.y, maxPos.y);
-
-            transform.position = Vector3.Lerp(transform.position, playerPos, smoothing);
-        }
+        xMin = mapBounds.bounds.min.x;
+        xMax = mapBounds.bounds.max.x;
+        yMin = mapBounds.bounds.min.y;
+        yMax = mapBounds.bounds.max.y;
+        mainCam = GetComponent<Camera>();
+        camOrthsize = mainCam.orthographicSize;
+        cameraRatio = (xMax + camOrthsize) / 2.0f;
     }
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        camY = Mathf.Clamp(followTransform.position.y, yMin + camOrthsize, yMax - camOrthsize);
+        camX = Mathf.Clamp(followTransform.position.x, xMin + cameraRatio, xMax - cameraRatio);
+        smoothPos = Vector3.Lerp(this.transform.position, new Vector3(camX, camY, this.transform.position.z), smoothSpeed);
+        this.transform.position = smoothPos;
+
+
+    }
+
 }
