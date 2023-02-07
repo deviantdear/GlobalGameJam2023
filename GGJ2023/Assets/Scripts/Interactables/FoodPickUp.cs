@@ -30,7 +30,7 @@ public class FoodPickUp : Interactable
         hasInteracted = true;
 
         gameController.GetComponent<GameStateManager>().IncreaseByRootValue();
-        gameController.GetComponent<SpawnGrass>().DecrementCount();
+       // gameController.GetComponent<SpawnGrass>().DecrementCount();
         Destroy(this.gameObject);
     }
 
@@ -43,14 +43,14 @@ public class FoodPickUp : Interactable
     void Update()
     {
         // if the object is too far away from the player, spawn a new one and destroy this one
-        distanceFromPlayer = Vector3.Distance(playerCharacter.transform.position, this.transform.position);
+        //distanceFromPlayer = Vector3.Distance(playerCharacter.transform.position, this.transform.position);
 
-        if (distanceFromPlayer > despawnDistance)
-        {
-            //gameController.GetComponent<SpawnGrass>().SpawnRootsCheck();
-            gameController.GetComponent<SpawnGrass>().DecrementCount();
-            Destroy(this.gameObject);
-        }
+        //if (distanceFromPlayer > despawnDistance)
+        //{
+        //    //gameController.GetComponent<SpawnGrass>().SpawnRootsCheck();
+        //    gameController.GetComponent<SpawnGrass>().DecrementCount();
+        //    Destroy(this.gameObject);
+        //}
     }
 
 
