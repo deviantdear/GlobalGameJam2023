@@ -5,16 +5,18 @@ using UnityEngine;
 public class NPCHuman : Interactable
 {
     CharacterStats myStats; //References NPC Stats
+    [SerializeField] FollowWayPoints m_FollowWaypoints;
 
     void Start()
     {
         myStats = GetComponent<CharacterStats>();
     }
 
-    public override void Interact()
+    public override bool Interact()
     {
         base.Interact();
-
+        m_FollowWaypoints.chase = true;
+        return true;
     }
 }
    

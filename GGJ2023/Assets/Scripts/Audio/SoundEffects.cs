@@ -34,7 +34,7 @@ public class SoundEffects : MonoBehaviour
 
     private void SetVolume()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     private void OnEnable()
@@ -48,6 +48,21 @@ public class SoundEffects : MonoBehaviour
     {
         //unsubscribe to events
         FollowWayPoints.Chase -= ChangeTheme;
+    }
+
+    public void Moo()
+    {
+        RandomizeSfx(moo);
+    }
+
+    public void Cowbell()
+    {
+        PlaySingle(cowbell);
+    }
+
+    public void Stomp()
+    {
+        //PlaySingle(walkling);
     }
 
     //Used to play single sound clips.
@@ -77,7 +92,8 @@ public class SoundEffects : MonoBehaviour
         sfxSource.clip = clips[randomIndex];
 
         //Play the clip.
-        sfxSource.PlayDelayed(.05f);
+        //sfxSource.PlayDelayed(.05f);
+        sfxSource.Play();
     }
 
     public void ChangeTheme()
