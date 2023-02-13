@@ -31,9 +31,7 @@ public class Worker2D : MonoBehaviour, IGoap
         {
             if (agent.hasPath)
             {
-                Vector3 toTarget = agent.steeringTarget - this.transform.position;
-                float turnAngle = Vector3.Angle(this.transform.forward, toTarget);
-                agent.acceleration = turnAngle * agent.speed;
+                agent.acceleration = agent.speed;
             }
         }
         if (chase)
@@ -46,7 +44,8 @@ public class Worker2D : MonoBehaviour, IGoap
 
     public void ActionsFinished()
     {
-        throw new System.NotImplementedException();
+        //tbd
+        //idle
     }
 
     public HashSet<KeyValuePair<string, object>> CreateGoalState()
@@ -91,16 +90,16 @@ public class Worker2D : MonoBehaviour, IGoap
 
     public void PlanAborted(GoapAction aborter)
     {
-        throw new System.NotImplementedException();
+        //tbd
     }
 
     public void PlanFailed(HashSet<KeyValuePair<string, object>> failedGoal)
     {
-        throw new System.NotImplementedException();
+        //tbd
     }
 
     public void PlanFound(HashSet<KeyValuePair<string, object>> goal, Queue<GoapAction> actions)
     {
-        throw new System.NotImplementedException();
+        //tbd
     }
 }
