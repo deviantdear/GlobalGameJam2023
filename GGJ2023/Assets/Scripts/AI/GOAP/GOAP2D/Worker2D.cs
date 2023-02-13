@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Worker2D : MonoBehaviour, IGoap
 {
     public NPCHuman npc;
-    Vector2 previousDestination;
+    Vector3 previousDestination;
     private CharacterStats npcStats;
     public CharacterStats player;
     public Transform[] waypoints;
@@ -14,15 +15,26 @@ public class Worker2D : MonoBehaviour, IGoap
     public float speed = 10.0f;
     public bool chase = false;
     public Transform cow;
+    NavMeshAgent agent;
 
     public static Action Chase;
+
+    void Start()
+    {
+        agent = this.GetComponent<NavMeshAgent>();
+    }
 
     void Update()
     {
         //endless loop
         if (!chase)
         {
-            //Autofollow();
+            if (agent.hasPath)
+            {
+                Vector3 toTarget = agent.steeringTarget - this.transform.position;
+                float turnAngle = Vector3.Angle(this.transform.forward, toTarget);
+                agent.acceleration = turnAngle * agent.speed;
+            }
         }
         if (chase)
         {
@@ -53,20 +65,22 @@ public class Worker2D : MonoBehaviour, IGoap
         return worldData;
     }
 
+
     public bool MoveAgent(GoapAction nextAction)
     {
+
         //if we don't need to move anywhere
-        if ((transform.position == waypoints[currentWp].transform.position))
+        if (previousDestination == nextAction.target.transform.position)
         {
-            currentWp += 1;
             nextAction.setInRange(true);
             return true;
         }
 
+        agent.SetDestination(nextAction.target.transform.position);
+
         //We have reached our destination -> next action
-        if (currentWp == waypoints.Length)
+        if (agent.hasPath && agent.remainingDistance < 2)
         {
-            currentWp = 0;
             nextAction.setInRange(true);
             previousDestination = nextAction.target.transform.position;
             return true;

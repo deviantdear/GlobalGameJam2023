@@ -4,40 +4,51 @@ using UnityEngine;
 
 public class WalkToWayPoint : GoapAction
 {
+    bool completed = false;
+    float startTime = 0;
+    public float workDuration = 2; //seconds 
+
+    public WalkToWayPoint()
+    {
+        //Requirement for actions + debug name
+        addPrecondition("Chasing", false);
+        addEffect("doJob", true);
+        name = "WalkToWayPoints";
+    }
     public override bool checkProceduralPrecondition(GameObject agent)
     {
-        throw new System.NotImplementedException();
+        return true;
     }
 
     public override bool isDone()
     {
-        throw new System.NotImplementedException();
+        return completed;
     }
 
     public override bool perform(GameObject agent)
     {
-        throw new System.NotImplementedException();
+        if (startTime == 0)
+        {
+            Debug.Log("Starting:" + name);
+            startTime = Time.time;
+        }
+        if (Time.time - startTime > workDuration)
+        {
+            Debug.Log("Finished:" + name);
+            completed = true;
+        }
+        return true;
     }
 
     public override bool requiresInRange()
     {
-        throw new System.NotImplementedException();
+        return true;
     }
 
     public override void reset()
     {
-        throw new System.NotImplementedException();
+        completed = false;
+        startTime = 0;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
