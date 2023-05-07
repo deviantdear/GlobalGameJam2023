@@ -3224,6 +3224,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: sidewalk center
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd746b967357fa49b387cf85dee4ab8
+      internalID: 388133411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3332,6 +3353,7 @@ TextureImporter:
       World Building_59: -1887262576
       World Building_96: -424328704
       World Building_58: 1436181373
+      sidewalk center: 388133411
       World Building_88: -750204928
       fence_top_tr: -1890265877
       World Building_117: 603635632
