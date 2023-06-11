@@ -14,7 +14,6 @@ namespace Character
         [SerializeField] internal bool m_ReverseFlip;
         [SerializeField] AnimationLoop m_AnimationLoop;
         [SerializeField] internal int m_Frame;
-        [SerializeField] int m_BaseCount;
         
         internal virtual AnimatedCharacterData Data { get => m_Data; set => m_Data = value; }
         internal Vector2 m_Direction;
@@ -57,7 +56,6 @@ namespace Character
             if (m_Direction.x < -0.01f || m_Direction.x > 0.01f)
                 m_LastFlip = (m_ReverseFlip)?  m_Direction.x < -0.01f : m_Direction.x > 0.01f;
             m_Frame = frame;
-            m_BaseCount = frame % m_Data.baseWalk.Count;
             switch (m_BaseState)
             {
                 case AnimatedCharacterData.BaseState.Sitting:

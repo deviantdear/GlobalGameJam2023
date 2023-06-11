@@ -7,7 +7,9 @@ namespace Character
 {
     public class AnimationLoop : MonoBehaviour
     {
-        [SerializeField] float m_FramesPerSecond = 3;
+        [SerializeField] float m_FramesPerSecond = 3f;
+        [SerializeField] int m_frame;
+        [SerializeField] float m_rate;
         public event Action<int> OnUpdate;
         IEnumerator m_ActiveLoop;
 
@@ -30,12 +32,12 @@ namespace Character
 
         IEnumerator AnimationCoroutine()
         {
+            m_rate = 1f / m_FramesPerSecond;
             while (m_AnimationPlaying)
             {
-                var time = Time.time;
-                var frame = (int)(time * m_FramesPerSecond);
-                OnUpdate?.Invoke(frame);
-                yield return new WaitForSeconds(1/m_FramesPerSecond);
+                m_frame++;
+                OnUpdate?.Invoke(m_frame);
+                yield return new WaitForSeconds(m_rate);
             }
 
             m_ActiveLoop = null;

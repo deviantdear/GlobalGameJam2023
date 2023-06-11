@@ -90,7 +90,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.5, y: 0}
+  m_Offset: {x: -0.010349274, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -101,7 +101,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5, y: 2}
+  m_Size: {x: 1.1878128, y: 1.822937}
   m_EdgeRadius: 0
 --- !u!114 &2862512484106675717
 MonoBehaviour:
@@ -121,7 +121,6 @@ MonoBehaviour:
   m_ReverseFlip: 0
   m_AnimationLoop: {fileID: 0}
   m_Frame: 0
-  m_BaseCount: 0
   m_PersonData: {fileID: 11400000, guid: aa7c3ae3b7c47944ea67759d082636ce, type: 2}
   m_FaceRenderer: {fileID: 2862512484961120305}
   m_ArmRenderer: {fileID: 2862512485118159019}
@@ -523,9 +522,9 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.375, y: 0.90625}
-      - {x: -0.4375, y: 0.84375}
+    - - {x: -0.26564026, y: -0.56230927}
+      - {x: -0.38021088, y: -0.6039734}
       - {x: -0.4375, y: -0.90625}
       - {x: 0.4375, y: -0.90625}
-      - {x: 0.4375, y: 0.78125}
-      - {x: 0.3125, y: 0.90625}
+      - {x: 0.390625, y: -0.5987778}
+      - {x: 0.30728912, y: -0.56230164}

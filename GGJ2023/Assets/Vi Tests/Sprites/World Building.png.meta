@@ -3233,7 +3233,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3241,6 +3241,111 @@ TextureImporter:
       bones: []
       spriteID: 9bd746b967357fa49b387cf85dee4ab8
       internalID: 388133411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asphalt
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 80
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 795c32a609bb49044a71f164e7c7d66a
+      internalID: 2035648353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asphalt_tl
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 746012dcac06b814c8de1f819044e1ed
+      internalID: -823910956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asphalt_tr
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 64
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a788244bdc53d94ba43437ae5a79c9b
+      internalID: -2111452198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asphalt_bl
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d569b5b2a04c5234081da74d9a0fd37c
+      internalID: -663766398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: asphalt_br
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19238bfbbdecdae49a122fa5ac6586a4
+      internalID: 744285425
       vertices: []
       indices: 
       edges: []
@@ -3285,6 +3390,7 @@ TextureImporter:
       World Building_21: -1453295715
       World Building_45: -1873049158
       World Building_137: -752710150
+      asphalt_tl: -823910956
       World Building_87: 239191330
       World Building_138: -1673241821
       World Building_46: -75882307
@@ -3315,6 +3421,7 @@ TextureImporter:
       World Building_120: -797352024
       World Building_97: -771015908
       World Building_81: -896597346
+      asphalt: 2035648353
       World Building_4: -1768950726
       World Building_136: 696438428
       World Building_40: -1961314125
@@ -3349,6 +3456,7 @@ TextureImporter:
       World Building_18: 442478105
       World Building_140: -1253003036
       water_4: 896979555
+      asphalt_tr: -2111452198
       World Building_61: -1416492130
       World Building_59: -1887262576
       World Building_96: -424328704
@@ -3385,12 +3493,14 @@ TextureImporter:
       World Building_36: -1647209166
       World Building_13: 1342709091
       World Building_42: -2129870582
+      asphalt_bl: -663766398
       World Building_47: 434864210
       World Building_53: 22171989
       fence_br: 1514824173
       World Building_86: 1764665319
       World Building_66: -1933553490
       World Building_48: -648994544
+      asphalt_br: 744285425
       World Building_62: 928026098
       fence_top_bl: 2025777681
       World Building_65: -1717159362
