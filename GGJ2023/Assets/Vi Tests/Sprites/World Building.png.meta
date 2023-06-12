@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -3275,7 +3294,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3296,7 +3315,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3317,7 +3336,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3338,7 +3357,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -3346,6 +3365,27 @@ TextureImporter:
       bones: []
       spriteID: 19238bfbbdecdae49a122fa5ac6586a4
       internalID: 744285425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sidewalk-h
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 48
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b32880e0133f99040a93c5b62de8e4d1
+      internalID: 1647998604
       vertices: []
       indices: 
       edges: []
@@ -3361,163 +3401,163 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Sidewalk-h: 1647998604
+      World Building_10: 359749133
+      World Building_100: 1665353435
+      World Building_101: -305503145
+      World Building_102: 982788873
       World Building_103: -560605455
+      World Building_104: 554146143
+      World Building_105: -1313588317
+      World Building_106: 339647227
+      World Building_107: 880154598
+      World Building_108: -826882331
       World Building_109: -805712305
-      World Building_142: -166443205
-      World Building_15: 103713903
+      World Building_11: 1903123513
+      World Building_110: 1486519638
+      World Building_111: 1685091575
+      World Building_112: -569128149
+      World Building_113: 1875968096
+      World Building_114: -38499583
+      World Building_115: 1294580272
+      World Building_116: -23297696
+      World Building_117: 603635632
+      World Building_118: -432149960
+      World Building_119: -224006245
+      World Building_12: -651583576
+      World Building_120: -797352024
+      World Building_121: 1772458085
+      World Building_122: -88768207
+      World Building_123: -1821068183
+      World Building_124: -316561192
+      World Building_125: -146930017
+      World Building_126: 1854821768
+      World Building_127: 1109756847
       World Building_128: -149753764
-      World Building_130: 690635881
-      World Building_22: -378409505
-      World Building_77: -1179880380
-      World Building_43: -1755268
       World Building_129: 514383553
+      World Building_13: 1342709091
+      World Building_130: 690635881
+      World Building_131: -196184169
+      World Building_132: 1395033151
+      World Building_133: 205608043
+      World Building_134: 1399230143
+      World Building_135: -874001746
+      World Building_136: 696438428
+      World Building_137: -752710150
+      World Building_138: -1673241821
       World Building_139: 255070060
       World Building_14: -568972828
-      World Building_115: 1294580272
-      World Building_12: -651583576
-      World Building_116: -23297696
-      World Building_145: -1282491512
-      puddle_tl: 538167192
-      World Building_68: -1076436192
-      World Building_35: 1210243112
-      World Building_85: 1866528959
-      World Building_113: 1875968096
-      fence_half: -862433214
-      World Building_107: 880154598
-      World Building_5: 73061210
-      World Building_57: -1051889988
-      World Building_131: -196184169
-      World Building_21: -1453295715
-      World Building_45: -1873049158
-      World Building_137: -752710150
-      asphalt_tl: -823910956
-      World Building_87: 239191330
-      World Building_138: -1673241821
-      World Building_46: -75882307
-      World Building_111: 1685091575
-      water_2: 472118516
-      World Building_104: 554146143
-      World Building_106: 339647227
-      World Building_100: 1665353435
-      World Building_7: 1404948591
-      World Building_79: 571009256
-      World Building_119: -224006245
-      World Building_52: -958802868
-      World Building_76: 1991992308
-      World Building_33: 483126060
-      World Building_69: 1910106766
-      World Building_11: 1903123513
-      World Building_17: 1612142864
-      World Building_56: -1923827440
-      World Building_118: -432149960
-      World Building_90: -264826599
-      World Building_114: -38499583
-      World Building_134: 1399230143
-      World Building_51: 1308305745
-      World Building_63: -122148761
-      World Building_126: 1854821768
-      World Building_44: 1021670647
-      World Building_9: -439320232
-      World Building_120: -797352024
-      World Building_97: -771015908
-      World Building_81: -896597346
-      asphalt: 2035648353
-      World Building_4: -1768950726
-      World Building_136: 696438428
-      World Building_40: -1961314125
-      World Building_55: 425268611
-      World Building_34: 1266343784
-      World Building_60: 746669655
-      World Building_123: -1821068183
-      puddle_bl: -412340040
-      World Building_39: -405933390
-      fence_top_br: 700775011
-      World Building_8: -1730415901
-      World Building_105: -1313588317
-      World Building_16: -1155824064
-      World Building_32: 725301987
-      World Building_122: -88768207
-      World Building_132: 1395033151
-      fence_tr: -6396293
-      World Building_67: -1993236448
-      World Building_121: 1772458085
-      puddle_tr: 2078332474
-      World Building_125: -146930017
-      World Building_110: 1486519638
-      water_1: 1694051228
-      World Building_64: -1474918845
-      World Building_82: -1370777001
-      fence_bl: 107445616
-      World Building_84: 934597348
-      World Building_80: -1723145103
-      fence_tl: -1111033909
-      World Building_24: -82486590
-      water_3: 1524750276
-      World Building_18: 442478105
       World Building_140: -1253003036
-      water_4: 896979555
-      asphalt_tr: -2111452198
-      World Building_61: -1416492130
-      World Building_59: -1887262576
-      World Building_96: -424328704
-      World Building_58: 1436181373
-      sidewalk center: 388133411
-      World Building_88: -750204928
-      fence_top_tr: -1890265877
-      World Building_117: 603635632
-      World Building_93: -1727544413
-      World Building_89: 784049424
-      World Building_20: -1859789938
-      World Building_23: -1539779648
-      World Building_102: 982788873
-      World Building_19: -791755328
-      World Building_95: 1322348422
-      fence: -2074648410
-      World Building_91: -471910078
-      World Building_127: 1109756847
-      World Building_143: 1826086465
-      World Building_133: 205608043
-      World Building_124: -316561192
-      World Building_41: -295226873
-      World Building_101: -305503145
-      World Building_108: -826882331
-      puddle_br: -922337700
-      World Building_147: 596935629
-      fence_top_t: -2009304577
-      World Building_10: 359749133
-      World Building_92: -1981088052
-      World Building_37: 1326352402
-      World Building_78: 153111674
-      World Building_6: -479248327
-      World Building_94: 1508459216
-      World Building_36: -1647209166
-      World Building_13: 1342709091
-      World Building_42: -2129870582
-      asphalt_bl: -663766398
-      World Building_47: 434864210
-      World Building_53: 22171989
-      fence_br: 1514824173
-      World Building_86: 1764665319
-      World Building_66: -1933553490
-      World Building_48: -648994544
-      asphalt_br: 744285425
-      World Building_62: 928026098
-      fence_top_bl: 2025777681
-      World Building_65: -1717159362
-      World Building_75: 597108948
-      World Building_74: -888105795
-      World Building_135: -874001746
-      World Building_83: 2063939943
-      World Building_112: -569128149
-      World Building_38: 1662805310
-      World Building_144: 907079626
       World Building_141: -414485718
-      fence_top: -714327094
-      World Building_54: 1853724322
+      World Building_142: -166443205
+      World Building_143: 1826086465
+      World Building_144: 907079626
+      World Building_145: -1282491512
       World Building_146: -814263243
-  spritePackingTag: 
+      World Building_147: 596935629
+      World Building_15: 103713903
+      World Building_16: -1155824064
+      World Building_17: 1612142864
+      World Building_18: 442478105
+      World Building_19: -791755328
+      World Building_20: -1859789938
+      World Building_21: -1453295715
+      World Building_22: -378409505
+      World Building_23: -1539779648
+      World Building_24: -82486590
+      World Building_32: 725301987
+      World Building_33: 483126060
+      World Building_34: 1266343784
+      World Building_35: 1210243112
+      World Building_36: -1647209166
+      World Building_37: 1326352402
+      World Building_38: 1662805310
+      World Building_39: -405933390
+      World Building_4: -1768950726
+      World Building_40: -1961314125
+      World Building_41: -295226873
+      World Building_42: -2129870582
+      World Building_43: -1755268
+      World Building_44: 1021670647
+      World Building_45: -1873049158
+      World Building_46: -75882307
+      World Building_47: 434864210
+      World Building_48: -648994544
+      World Building_5: 73061210
+      World Building_51: 1308305745
+      World Building_52: -958802868
+      World Building_53: 22171989
+      World Building_54: 1853724322
+      World Building_55: 425268611
+      World Building_56: -1923827440
+      World Building_57: -1051889988
+      World Building_58: 1436181373
+      World Building_59: -1887262576
+      World Building_6: -479248327
+      World Building_60: 746669655
+      World Building_61: -1416492130
+      World Building_62: 928026098
+      World Building_63: -122148761
+      World Building_64: -1474918845
+      World Building_65: -1717159362
+      World Building_66: -1933553490
+      World Building_67: -1993236448
+      World Building_68: -1076436192
+      World Building_69: 1910106766
+      World Building_7: 1404948591
+      World Building_74: -888105795
+      World Building_75: 597108948
+      World Building_76: 1991992308
+      World Building_77: -1179880380
+      World Building_78: 153111674
+      World Building_79: 571009256
+      World Building_8: -1730415901
+      World Building_80: -1723145103
+      World Building_81: -896597346
+      World Building_82: -1370777001
+      World Building_83: 2063939943
+      World Building_84: 934597348
+      World Building_85: 1866528959
+      World Building_86: 1764665319
+      World Building_87: 239191330
+      World Building_88: -750204928
+      World Building_89: 784049424
+      World Building_9: -439320232
+      World Building_90: -264826599
+      World Building_91: -471910078
+      World Building_92: -1981088052
+      World Building_93: -1727544413
+      World Building_94: 1508459216
+      World Building_95: 1322348422
+      World Building_96: -424328704
+      World Building_97: -771015908
+      asphalt: 2035648353
+      asphalt_bl: -663766398
+      asphalt_br: 744285425
+      asphalt_tl: -823910956
+      asphalt_tr: -2111452198
+      fence: -2074648410
+      fence_bl: 107445616
+      fence_br: 1514824173
+      fence_half: -862433214
+      fence_tl: -1111033909
+      fence_top: -714327094
+      fence_top_bl: 2025777681
+      fence_top_br: 700775011
+      fence_top_t: -2009304577
+      fence_top_tr: -1890265877
+      fence_tr: -6396293
+      puddle_bl: -412340040
+      puddle_br: -922337700
+      puddle_tl: 538167192
+      puddle_tr: 2078332474
+      sidewalk center: 388133411
+      water_1: 1694051228
+      water_2: 472118516
+      water_3: 1524750276
+      water_4: 896979555
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
